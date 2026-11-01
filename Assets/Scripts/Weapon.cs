@@ -3,10 +3,9 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
-    [SerializeField] private GameObject _bulletPrefab;
-    [SerializeField] private Transform _shootPoint;
-    [SerializeField] private float _fireRate;
+    [SerializeField] private RaycastHitShot _raycast;
 
+    [SerializeField] private float _fireRate;
     [SerializeField] private int _magazine;
     [SerializeField] private int _ammo;
     public int Ammo => _ammo;
@@ -33,12 +32,7 @@ public class Weapon : MonoBehaviour
     }
     public void Shoot()
     {
-        GameObject bulletObject = Instantiate(_bulletPrefab, _shootPoint.position, Quaternion.identity);
-        Bullet bullet = bulletObject.GetComponent<Bullet>();
-        if (bullet != null)
-        {
-            bullet.ShootBullet(_shootPoint.forward);
-        }
+        _raycast.ShootRay();
     }
     private void DecreaseAmmo()
     {

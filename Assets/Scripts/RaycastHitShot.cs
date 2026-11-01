@@ -10,7 +10,6 @@ public class RaycastHitShot : MonoBehaviour
     [SerializeField] private float _shootDistance;
     public void Shoot()
     {
-
         Ray ray = new Ray (_shootPoint.position, _shootPoint.forward);
 
         if (Physics.Raycast(ray, out RaycastHit hit, _shootDistance, _masks))

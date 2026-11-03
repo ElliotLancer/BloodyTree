@@ -6,6 +6,11 @@ public class DamageUI : MonoBehaviour
     [SerializeField] private TMP_Text _damageText;
     [SerializeField] private float _lifeTime;
     [SerializeField] private float _speed;
+    [SerializeField] private Transform _player;
+    private void Awake()
+    {
+        _player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+    }
     private void Start()
     {
         Destroy(gameObject, _lifeTime);
@@ -17,5 +22,10 @@ public class DamageUI : MonoBehaviour
     public void SetDamageText(int damage)
     {
         _damageText.text = $"- {damage}";
+    }
+    public void SetUIRotation(Vector3 pos)
+    {
+        Vector3 dir = _player.position - pos;
+        transform.rotation = Quaternion.LookRotation(dir);
     }
 }

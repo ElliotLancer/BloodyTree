@@ -348,5 +348,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damageText: {fileID: 8162377999977101920}
-  _lifeTime: 2
+  _lifeTime: 20
   _speed: 0.05
+  _player: {fileID: 0}

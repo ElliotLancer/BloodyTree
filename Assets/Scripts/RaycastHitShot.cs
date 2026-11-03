@@ -23,8 +23,8 @@ public class RaycastHitShot : MonoBehaviour
                 damagable.TakeDamage(_damage);
             }
             Vector3 spawnPosition = hit.point + hit.normal * _offset;
+            Instantiate(_bulletInpactPrefab, hit.point, Quaternion.LookRotation(hit.normal), hit.transform);
 
-            Instantiate(_bulletInpactPrefab, hit.point, Quaternion.LookRotation(hit.normal));
         }
     }
 }

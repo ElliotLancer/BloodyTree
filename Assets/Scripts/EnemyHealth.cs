@@ -16,6 +16,7 @@ public class EnemyHealth : MonoBehaviour, IDamagable
         if (damageUI != null)
         {
             damageUI.SetDamageText(damage);
+            damageUI.SetUIRotation(_damagePopupPoint.position);
             Debug.Log("set popup");
         }
 

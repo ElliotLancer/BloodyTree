@@ -2,14 +2,20 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    public Animator animator;
-    [SerializeField] private float _moveSpeed = 3f;
+    [SerializeField] private float _defaultSpeed = 6f;
+    [SerializeField] private float _crouchSpeed = 3f;
 
+    [SerializeField] private Animator _animator;
+    private float _moveSpeed;
+    private void Start()
+    {
+        _moveSpeed = _defaultSpeed;
+    }
     private void Update()
     {
         Moving();
     }
-    protected virtual void Moving()
+    public void Moving()
     {
         float moveX = Input.GetAxis("Horizontal");
         float moveZ = Input.GetAxis("Vertical");
@@ -20,6 +26,10 @@ public class Movement : MonoBehaviour
         transform.position += move * _moveSpeed * Time.deltaTime;
 
         float speed = new Vector2(moveX, moveZ).magnitude;
-        animator.SetFloat("Speed", speed);
+        _animator.SetFloat("Speed", speed);
+    }
+    public void SetCrouchSpeed(bool predicate)
+    {
+        _moveSpeed = predicate ? _crouchSpeed : _defaultSpeed;
     }
 }

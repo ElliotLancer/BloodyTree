@@ -68,7 +68,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -0.002998352, y: -0.0009994507}
+  m_AnchoredPosition: {x: 0.002998352, y: 0.0009994507}
   m_SizeDelta: {x: 0.51, y: 0.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &8759383262005964408
@@ -200,7 +200,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.002998352, y: 1.068}
+  m_AnchoredPosition: {x: 0.002998352, y: 1.068}
   m_SizeDelta: {x: 200.95, y: 53.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5022139476831339746
@@ -348,6 +348,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damageText: {fileID: 8162377999977101920}
-  _lifeTime: 20
+  _lifeTime: 4
   _speed: 0.05
   _player: {fileID: 0}

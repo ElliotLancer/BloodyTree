@@ -25,7 +25,7 @@ public class DamageUI : MonoBehaviour
     }
     public void SetUIRotation(Vector3 pos)
     {
-        Vector3 dir = _player.position - pos;
+        Vector3 dir = pos - _player.position;
         transform.rotation = Quaternion.LookRotation(dir);
     }
 }

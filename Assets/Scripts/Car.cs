@@ -9,6 +9,7 @@ public class Car : MonoBehaviour
     private bool _isDestroied;
     private bool _isInCar;
     private SitInCar _sit;
+    public bool IsInCar => _isInCar;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -19,10 +20,7 @@ public class Car : MonoBehaviour
         }
         _canSitInCar = true;
         _sit = other.GetComponent<SitInCar>();
-        if (_sit == null)
-        {
-            Debug.Log("sit is null");
-        }
+        
     }
     private void OnTriggerExit(Collider other)
     {
@@ -37,11 +35,11 @@ public class Car : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.F) && _canSitInCar == true && !_isDestroied)
         {
-            _sit.GetIntoCar(_sitPoint.position);
+            _sit.GetIntoCar(_sitPoint.position, transform);
             _cameras.ChangeCameraToCar();
             _isInCar = true;
         }
-        if (Input.GetKeyDown(KeyCode.G) && _canSitInCar == true && !_isDestroied && _isInCar)
+        if (Input.GetKeyDown(KeyCode.G) && !_isDestroied && _isInCar)
         {
             _sit.GetOutOfCar(_GetOutPoint.position);
             _cameras.ChangeCameraToPlayer();
